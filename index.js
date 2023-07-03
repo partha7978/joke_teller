@@ -1,21 +1,20 @@
 const btn = document.querySelector('.joke-btn');
 const jokeSection = document.querySelector('.joke-section'); 
 
-// fetch the request from https://icanhazdadjoke.com/api
+// fetch the request from https://hindi-jokes-api.onrender.com/
 async function fetchRequest() {
-    const get =  await fetch("https://icanhazdadjoke.com/", {
-        headers: {
-            Accept: "application/json"
-        }
-    });
+    // https://hindi-jokes-api.onrender.com/
+
+    const get = await fetch("https://hindi-jokes-api.onrender.com/jokes?api_key=def3509e088f94330e14a6fde70a");
     const joke = await get.json();
-   return joke;
+    return joke;
 }
 
 btn.addEventListener('click', async () => {
     const jokeData = await fetchRequest();
     console.log(jokeData);
 
-    jokeSection.innerText = jokeData.joke;
+    jokeSection.innerText = jokeData.jokeContent;
 });
 
+btn.click();
