@@ -14,8 +14,7 @@ async function fetchRequest() {
 
 btn.addEventListener('click', async () => {
     const jokeData = await fetchRequest();
-    console.log(jokeData);
-
+    console.log(jokeData);  
     jokeSection.innerText = jokeData.jokeContent;
 });
 
