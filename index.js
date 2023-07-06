@@ -5,16 +5,25 @@ const url = "https://hindi-jokes-api.onrender.com/jokes?api_key=def3509e088f9433
 // fetch the request from https://hindi-jokes-api.onrender.com/
 async function fetchRequest() {
     // https://hindi-jokes-api.onrender.com/
-    loading(true);
-    const get = await fetch(url);
-    const joke = await get.json();
-    loading(false);
-    return joke;
+    try {
+        jokeSection.classList.remove('error-text');
+        loading(true);
+        const get = await fetch(url);
+        const joke = await get.json();
+        loading(false);
+        return joke;
+    }
+    catch (err) {
+        jokeSection.classList.add('error-text');
+        jokeSection.innerText = err;
+        console.log(err);
+    }
+   
 }
 
 btn.addEventListener('click', async () => {
     const jokeData = await fetchRequest();
-    console.log(jokeData);  
+    // console.log(jokeData);  
     jokeSection.innerText = jokeData.jokeContent;
 });
 

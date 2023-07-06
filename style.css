@@ -52,6 +52,12 @@ section .joke-section {
     font-weight: 550;
 }
 
+section .joke-section.error-text{
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 section button.joke-btn {
     position: absolute;
     bottom: 1rem;
